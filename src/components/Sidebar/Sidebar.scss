@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'Open Regular';
+  src: url('/fonts/OpenSans-Regular.ttf');
+}
+
+.sidebar {
+  grid-area: main__sidebar;
+  background-color: white;
+  margin-left: 60px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+  .sidebar-header {
+    text-transform: uppercase;
+    text-decoration: dashed;
+    font-size: calc(5px + 0.52083vw);
+    padding: 20px 20px 10px 20px;
+    font-family: 'Open Regular';
+  }
+  .sidebar-filters {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: calc(6px + 0.52083vw);
+    font-family: 'Open Regular';
+  }
+
+  .sidebar-filters:last-child {
+    padding: 10px 20px 30px 20px;
+  }
+
+  .sidebar-filters input {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+  }
+
+  .sidebar-filters span {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 840px) {
+  .sidebar {
+    .sidebar-filters input {
+      height: 15px;
+    }
+  }
+}
+
+@media (min-height: 1024px) {
+  .sidebar {
+    .sidebar-header {
+      padding: 20px 20px 10px 20px;
+    }
+    .sidebar-filters {
+      padding: 10px 20px;
+    }
+
+    .sidebar-filters:last-child {
+      padding: 10px 20px 30px 20px;
+    }
+  }
+}
+
+@media (max-width: 565px) {
+  .sidebar {
+    .sidebar-header {
+      padding: 10px 10px 5px 15px;
+      font-size: calc(4px + 0.52083vw);
+    }
+    .sidebar-filters {
+      padding: 5px 10px;
+      font-size: calc(4px + 0.52083vw);
+    }
+
+    .sidebar-filters:last-child {
+      padding: 5px 10px 20px 10px;
+    }
+
+    .sidebar-filters input {
+      height: 10px;
+    }
+
+    .sidebar-filters span {
+      padding-left: 0px;
+    }
+  }
+}

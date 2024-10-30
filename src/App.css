@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  background-color: #e5e5e5;
+}
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f3f7fa;
+  max-width: 1060px;
+}
+
+@media (max-width: 930px) {
+  .App {
+    display: block;
+  }
+}

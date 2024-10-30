@@ -1,0 +1,7 @@
+.main {
+  display: grid;
+  grid-template-areas:
+    'main__sidebar main__filter'
+    'main__sidebar main__ticket';
+  margin: 20px 40px 20px 0px;
+}

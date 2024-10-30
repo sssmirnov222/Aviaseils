@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Open Sans SemiBold';
+  src: url('/fonts/OpenSans-SemiBold.ttf');
+}
+
+.ticket {
+  grid-area: main__ticket;
+  background-color: white;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 1vh 0vw 0vh 0vw;
+
+  .ticket-header {
+    display: flex;
+    justify-content: space-between;
+
+    .ticket-header__price {
+      font-size: 24px;
+      padding: 2vh 2.5vw 1.5vh 2vw;
+      color: #2196f3;
+      font-family: 'Open Sans SemiBold';
+    }
+    .ticket-header__logo {
+      padding: 10px 20px 10px 20px;
+    }
+  }
+
+  .ticket-data {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ticket-options {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .ticket-data-time,
+  .ticket-data-path,
+  .ticket-data-transplants {
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 5vw 0.5vh 2vw;
+    font-family: 'Open Sans SemiBold';
+    font-size: calc(7px + 0.52083vw);
+  }
+
+  .ticket-data-time span,
+  .ticket-data-path span,
+  .ticket-data-transplants span {
+    font-size: calc(7px + 0.52083vw);
+    color: #a0b0b9;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 565px) {
+  .ticket {
+    padding: 0;
+    .ticket-header {
+      display: flex;
+      justify-content: space-between;
+
+      .ticket-header__price {
+        font-size: calc(6px + 0.52083vw);
+        padding: 8px;
+        color: #2196f3;
+        font-family: 'Open Sans SemiBold';
+      }
+      .ticket-header__logo {
+        padding: 5px 10px 5px 10px;
+        width: 50px;
+      }
+    }
+    .ticket-data-time,
+    .ticket-data-path,
+    .ticket-data-transplants {
+      font-size: calc(3px + 0.52083vw);
+    }
+
+    .ticket-data-time span,
+    .ticket-data-path span,
+    .ticket-data-transplants span {
+      font-size: calc(3px + 0.52083vw);
+    }
+  }
+}
