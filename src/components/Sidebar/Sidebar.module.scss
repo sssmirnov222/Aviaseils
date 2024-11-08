@@ -10,15 +10,16 @@
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  height: 260px;
 
-  .sidebar-header {
+  .sidebar__header {
     text-transform: uppercase;
     text-decoration: dashed;
     font-size: calc(5px + 0.52083vw);
     padding: 20px 50px 10px 20px;
     font-family: 'Open Regular';
   }
-  .sidebar-filters {
+  .sidebar__filters {
     display: flex;
     align-items: center;
     margin: 0;
@@ -27,24 +28,25 @@
     font-family: 'Open Regular';
   }
 
-  .sidebar-filters:last-child {
+  .sidebar__filters:last-child {
     padding: 10px 20px 30px 20px;
   }
 
-  .sidebar-filters input {
+  .sidebar__filters input {
     width: 20px;
     height: 20px;
     padding-right: 10px;
   }
 
-  .sidebar-filters span {
+  .sidebar__filters span {
     padding-left: 10px;
   }
 }
 
 @media (max-width: 840px) {
   .sidebar {
-    .sidebar-filters input {
+    height: 230px;
+    .sidebar__filters input {
       height: 15px;
     }
   }
@@ -52,14 +54,14 @@
 
 @media (min-height: 1024px) {
   .sidebar {
-    .sidebar-header {
+    .sidebar__header {
       padding: 20px 20px 10px 20px;
     }
-    .sidebar-filters {
+    .sidebar__filters {
       padding: 10px 20px;
     }
 
-    .sidebar-filters:last-child {
+    .sidebar__filters:last-child {
       padding: 10px 20px 30px 20px;
     }
   }
@@ -67,24 +69,25 @@
 
 @media (max-width: 565px) {
   .sidebar {
-    .sidebar-header {
-      padding: 10px 10px 5px 15px;
-      font-size: calc(4px + 0.52083vw);
+    height: 140px;
+    .sidebar__header {
+      padding: 10px 10px 5px 5px;
+      font-size: calc(3px + 0.52083vw);
     }
-    .sidebar-filters {
-      padding: 5px 10px;
+    .sidebar__filters {
+      padding: 5px 00px;
       font-size: calc(4px + 0.52083vw);
     }
 
-    .sidebar-filters:last-child {
-      padding: 5px 10px 20px 10px;
+    .sidebar__filters:last-child {
+      padding: 5px 10px 20px 0px;
     }
 
-    .sidebar-filters input {
+    .sidebar__filters input {
       height: 10px;
     }
 
-    .sidebar-filters span {
+    .sidebar__filters span {
       padding-left: 0px;
     }
   }

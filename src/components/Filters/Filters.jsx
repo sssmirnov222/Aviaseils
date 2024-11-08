@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { cheapTicket, fastTicket, optimalTicket } from '../../redux/actions';
-import './Filters.scss';
+import filter from './Filters.module.scss';
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="filters">
+    <div className={filter.filters}>
       <button onClick={cheap}>Самый дешевый</button>
 
       <button onClick={fast}>Самый быстрый</button>

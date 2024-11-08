@@ -1,4 +1,15 @@
-import { CHEAP, FAST, OPTIMAL, ALL, NO_TRANSFER, ONE_TRANSFER, TWO_TRANSFER, THREE_TRANSFER } from './types';
+import { type } from '@testing-library/user-event/dist/type';
+import {
+  CHEAP,
+  FAST,
+  OPTIMAL,
+  ALL,
+  NO_TRANSFER,
+  ONE_TRANSFER,
+  TWO_TRANSFER,
+  THREE_TRANSFER,
+  TICKET_LOAD,
+} from './types';
 
 export function cheapTicket() {
   return {
@@ -45,5 +56,19 @@ export function twoTransferTicket() {
 export function threeTransferTicket() {
   return {
     type: THREE_TRANSFER,
+  };
+}
+
+export function ticketLoad() {
+  return async (dispatch) => {
+    const search = await fetch('https://aviasales-test-api.kata.academy/search');
+    const searchId = await search.json();
+
+    const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
+    const jsonData = await response.json();
+    dispatch({
+      type: TICKET_LOAD,
+      data: jsonData.tickets,
+    });
   };
 }

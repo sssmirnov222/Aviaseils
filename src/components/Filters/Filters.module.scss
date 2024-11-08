@@ -14,7 +14,7 @@
   cursor: pointer;
   font-size: calc(7px + 0.52083vw);
   text-transform: uppercase;
-  padding: 5px;
+  padding: 15px;
   width: 33%;
   background: white;
   border: 0;
@@ -35,14 +35,19 @@
 
 @media (max-width: 840px) {
   .filters button {
-    font-size: calc(7px + 0.4vw);
-    padding: 5px;
+    font-size: calc(5px + 0.4vw);
+    padding: 15px;
   }
 }
 
 @media (max-width: 565px) {
+  .filters {
+    height: 20px;
+  }
   .filters button {
-    font-size: 5px;
-    padding: 5px;
+    font-size: calc(2.5px + 0.4vw);
+    padding: 15px;
+    display: flex;
+    align-items: center;
   }
 }

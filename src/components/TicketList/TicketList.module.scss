@@ -1,0 +1,78 @@
+.tt:last-child {
+  display: none;
+}
+
+.ticket__header {
+  display: flex;
+  justify-content: space-between;
+
+  .ticket__header_price {
+    font-size: 24px;
+    padding: 2vh 2.5vw 1.5vh 2vw;
+    color: #2196f3;
+    font-family: 'Open Sans SemiBold';
+  }
+  .ticket__header_logo {
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+.ticket__data {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.ticket__options {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.ticket__data_time,
+.ticket__data_path,
+.ticket__data_transplants {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 5vw 0.5vh 2vw;
+  font-family: 'Open Sans SemiBold';
+  font-size: calc(7px + 0.52083vw);
+}
+
+.ticket__data_time span,
+.ticket__data_path span,
+.ticket__data_transplants span {
+  font-size: calc(7px + 0.52083vw);
+  color: #a0b0b9;
+  text-transform: uppercase;
+}
+
+@media (max-width: 565px) {
+  .ticket__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0px;
+
+    .ticket__header_price {
+      font-size: calc(6px + 0.52083vw);
+      padding: 8px;
+      color: #2196f3;
+      font-family: 'Open Sans SemiBold';
+    }
+    .ticket__header_logo {
+      padding: 5px 10px 5px 10px;
+      width: 50px;
+    }
+  }
+  .ticket__data_time,
+  .ticket__data_path,
+  .ticket__data_transplants {
+    font-size: calc(3px + 0.52083vw);
+    padding-bottom: 0px;
+  }
+
+  .ticket__data_time span,
+  .ticket__data_path span,
+  .ticket__data_transplants span {
+    font-size: calc(3px + 0.52083vw);
+    padding-bottom: 0px;
+  }
+}

@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Open Sans SemiBold';
+  src: url('/fonts/OpenSans-SemiBold.ttf');
+}
+
+.ticket {
+  grid-area: main__ticket;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 1vh 0vw 0vh 0vw;
+}
+
+.tick {
+  margin-bottom: 20px;
+  background-color: white;
+}

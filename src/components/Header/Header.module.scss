@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
 }
-.header-image {
+.header_image {
   margin-top: 30px;
+  width: 100px;
 }
 
 @media (max-width: 840px) {
-  .header-image {
+  .header_image {
     width: 50px;
     margin-top: 30px;
   }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   allTicket,
   noTransferTicket,
@@ -7,7 +7,7 @@ import {
   twoTransferTicket,
   threeTransferTicket,
 } from '../../redux/actions';
-import './Sidebar.scss';
+import sidebar from './Sidebar.module.scss';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -40,14 +40,14 @@ const Sidebar = () => {
   const [twoTransferTick, setTwoTransferTick] = useState(false);
   const [threeTransferTick, setThreeTransferTick] = useState(false);
 
-  console.log(allTick, noTransfertick);
+  // console.log(allTick, noTransfertick);
   return (
-    <div className="sidebar">
-      <h5 className="sidebar-header">Количество пересадок</h5>
-      <section className="sidebar-filters" onClick={all}>
+    <div className={sidebar.sidebar}>
+      <h5 className={sidebar.sidebar__header}>Количество пересадок</h5>
+      <section className={sidebar.sidebar__filters} onClick={all}>
         <input
           type="checkbox"
-          className="sidebar-filters_checkbox"
+          className={sidebar.sidebar__filters_checkbox}
           checked={noTransfertick && oneTransferTick && twoTransferTick && threeTransferTick}
           onClick={() => {
             setAllTick(true);
@@ -60,10 +60,10 @@ const Sidebar = () => {
         />
         <span>Все</span>
       </section>
-      <section className="sidebar-filters" onClick={noTransfer}>
+      <section className={sidebar.sidebar__filters} onClick={noTransfer}>
         <input
           type="checkbox"
-          className="sidebar-filters_checkbox"
+          className={sidebar.sidebar__filters_checkbox}
           checked={noTransfertick && allTick}
           onClick={() => {
             setNoTransferTick(!noTransfertick);
@@ -71,10 +71,10 @@ const Sidebar = () => {
         />
         <span>Без пересадок</span>
       </section>
-      <section className="sidebar-filters" onClick={oneTransfer}>
+      <section className={sidebar.sidebar__filters} onClick={oneTransfer}>
         <input
           type="checkbox"
-          className="sidebar-filters_checkbox"
+          className={sidebar.sidebar__filters_checkbox}
           checked={oneTransferTick && allTick}
           onClick={() => {
             setOneTransferTick(!oneTransferTick);
@@ -82,10 +82,10 @@ const Sidebar = () => {
         />
         <span>1 пересадка</span>
       </section>
-      <section className="sidebar-filters" onClick={twoTransfer}>
+      <section className={sidebar.sidebar__filters} onClick={twoTransfer}>
         <input
           type="checkbox"
-          className="sidebar-filters_checkbox"
+          className={sidebar.sidebar__filters_checkbox}
           checked={twoTransferTick && allTick}
           onClick={() => {
             setTwoTransferTick(!twoTransferTick);
@@ -93,10 +93,10 @@ const Sidebar = () => {
         />
         <span>2 пересадки</span>
       </section>
-      <section className="sidebar-filters" onClick={threeTransfer}>
+      <section className={sidebar.sidebar__filters} onClick={threeTransfer}>
         <input
           type="checkbox"
-          className="sidebar-filters_checkbox"
+          className={sidebar.sidebar__filters_checkbox}
           checked={threeTransferTick && allTick}
           onClick={() => {
             setThreeTransferTick(!threeTransferTick);

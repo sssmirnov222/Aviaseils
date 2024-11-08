@@ -6,3 +6,4 @@ export const NO_TRANSFER = 'NO_TRANSFER';
 export const ONE_TRANSFER = 'ONE_TRANSFER';
 export const TWO_TRANSFER = 'TWO_TRANSFER';
 export const THREE_TRANSFER = 'THREE_TRANSFER';
+export const TICKET_LOAD = 'TICKET_LOAD';

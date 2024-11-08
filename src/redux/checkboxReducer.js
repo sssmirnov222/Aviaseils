@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const checkboxReducer = (state = initialState, action) => {
-  console.log('chekAction >', action);
+  // console.log('chekAction >', action);
 
   switch (action.type) {
     case ALL:
