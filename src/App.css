@@ -10,11 +10,15 @@
 }
 
 .app-wrapper {
+  width: 100%;
+
   display: flex;
   justify-content: center;
+
   flex-direction: column;
   background-color: #f3f7fa;
-  max-width: 1060px;
+  /* min-width: 1060px; */
+  max-width: 1160px;
 }
 
 @media (max-width: 930px) {

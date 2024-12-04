@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { cheapTicket, fastTicket, optimalTicket } from '../../redux/actions';
 import filter from './Filters.module.scss';
 

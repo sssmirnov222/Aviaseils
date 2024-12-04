@@ -4,6 +4,7 @@
 }
 
 .sidebar {
+  width: 80%;
   grid-area: main__sidebar;
   background-color: white;
   margin-left: 60px;
@@ -45,6 +46,7 @@
 
 @media (max-width: 840px) {
   .sidebar {
+    width: 75%;
     height: 230px;
     .sidebar__filters input {
       height: 15px;
@@ -69,6 +71,7 @@
 
 @media (max-width: 565px) {
   .sidebar {
+    width: 60%;
     height: 140px;
     .sidebar__header {
       padding: 10px 10px 5px 5px;

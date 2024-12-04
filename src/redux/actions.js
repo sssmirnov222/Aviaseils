@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import {
   CHEAP,
   FAST,
@@ -10,16 +9,68 @@ import {
   THREE_TRANSFER,
   TICKET_LOAD,
 } from './types';
+let jsonData = [];
+let searchId = '';
+
+// let s = [];
+
+try {
+  let search = await fetch('https://aviasales-test-api.kata.academy/search');
+  searchId = await search.json();
+  console.log(searchId);
+  const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
+
+  jsonData = await response.json();
+  console.log(jsonData);
+  //   async function one() {
+  //     try {
+  // const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
+  // jsonData = await response.json();
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+
+  //     if (jsonData.stop === false) {
+  //       console.log('yet', jsonData);
+
+  //       s.push(...jsonData.tickets);
+  //       s.flat(2);
+  //       one();
+  //     } else {
+  //       console.log('sss', s.flat(2));
+  //       console.log('ent', jsonData);
+  //     }
+  //   }
+  // one();
+} catch (e) {
+  console.log(e);
+}
 
 export function cheapTicket() {
-  return {
-    type: CHEAP,
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: CHEAP,
+        data: [...jsonData.tickets].sort((a, b) => parseFloat(a.price) - parseFloat(b.price)),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
   };
 }
 
 export function fastTicket() {
-  return {
-    type: FAST,
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: FAST,
+        data: [...jsonData.tickets].sort(
+          (a, b) => parseFloat(a.segments[0].duration) - parseFloat(b.segments[0].duration)
+        ),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
   };
 }
 
@@ -29,46 +80,91 @@ export function optimalTicket() {
   };
 }
 
-export function allTicket() {
-  return {
-    type: ALL,
-  };
-}
-
-export function noTransferTicket() {
-  return {
-    type: NO_TRANSFER,
-  };
-}
-
-export function oneTransferTicket() {
-  return {
-    type: ONE_TRANSFER,
-  };
-}
-
-export function twoTransferTicket() {
-  return {
-    type: TWO_TRANSFER,
-  };
-}
-
-export function threeTransferTicket() {
-  return {
-    type: THREE_TRANSFER,
-  };
-}
-
-export function ticketLoad() {
+export function allTicket(allTick, noTransfertick, oneTransferTick, twoTransferTick, threeTransferTick) {
   return async (dispatch) => {
-    const search = await fetch('https://aviasales-test-api.kata.academy/search');
-    const searchId = await search.json();
+    try {
+      dispatch({
+        type: ALL,
+        data: jsonData.tickets,
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+}
 
-    const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
-    const jsonData = await response.json();
+export function noTransferTicket(noTransfertick) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: NO_TRANSFER,
+        data: noTransfertick
+          ? [...jsonData.tickets].filter((a) => a.segments[0].stops.length !== 0)
+          : [...jsonData.tickets].filter((a) => a.segments[0].stops.length === 0 && a.segments[1].stops.length === 0),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+}
+
+export function oneTransferTicket(oneTransferTick) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: ONE_TRANSFER,
+        data: oneTransferTick
+          ? [...jsonData.tickets].filter((a) => a.segments[0].stops.length !== 1)
+          : [...jsonData.tickets].filter((a) => a.segments[0].stops.length === 1 && a.segments[1].stops.length === 1),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+}
+
+export function twoTransferTicket(twoTransferTick) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: TWO_TRANSFER,
+        data: twoTransferTick
+          ? [...jsonData.tickets].filter((a) => a.segments[0].stops.length !== 2)
+          : [...jsonData.tickets].filter((a) => a.segments[0].stops.length === 2 && a.segments[1].stops.length === 2),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+}
+
+export function threeTransferTicket(threeTransferTick) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: THREE_TRANSFER,
+        data: threeTransferTick
+          ? [...jsonData.tickets].filter((a) => a.segments[0].stops.length !== 3)
+          : [...jsonData.tickets].filter((a) => a.segments[0].stops.length === 3 && a.segments[1].stops.length === 3),
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+}
+
+export function ticketLoad(allTick, noTransfertick, oneTransferTick, twoTransferTick, threeTransferTick) {
+  return async (dispatch) => {
+    let loading = true;
+    // console.log(allTick);
+    // console.log(jsonData.tickets);
+    loading = false;
+
     dispatch({
       type: TICKET_LOAD,
       data: jsonData.tickets,
+      loading: loading,
+      searchId: searchId,
     });
   };
 }

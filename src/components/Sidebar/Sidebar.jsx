@@ -6,41 +6,40 @@ import {
   oneTransferTicket,
   twoTransferTicket,
   threeTransferTicket,
+  ticketLoad,
 } from '../../redux/actions';
 import sidebar from './Sidebar.module.scss';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const [allTick, setAllTick] = useState(true);
+  const [noTransfertick, setNoTransferTick] = useState(true);
+  const [oneTransferTick, setOneTransferTick] = useState(true);
+  const [twoTransferTick, setTwoTransferTick] = useState(true);
+  const [threeTransferTick, setThreeTransferTick] = useState(true);
 
   const all = () => {
-    // setAllTick(true);
-
-    dispatch(allTicket());
+    console.log(allTick);
+    dispatch(allTicket(allTick, noTransfertick, oneTransferTick, twoTransferTick, threeTransferTick));
+    dispatch(ticketLoad(allTick, noTransfertick, oneTransferTick, twoTransferTick, threeTransferTick));
   };
 
   const noTransfer = () => {
-    dispatch(noTransferTicket());
+    dispatch(noTransferTicket(noTransfertick));
   };
 
   const oneTransfer = () => {
-    dispatch(oneTransferTicket());
+    dispatch(oneTransferTicket(oneTransferTick));
   };
 
   const twoTransfer = () => {
-    dispatch(twoTransferTicket());
+    dispatch(twoTransferTicket(twoTransferTick));
   };
 
   const threeTransfer = () => {
-    dispatch(threeTransferTicket());
+    dispatch(threeTransferTicket(threeTransferTick));
   };
 
-  const [allTick, setAllTick] = useState(true);
-  const [noTransfertick, setNoTransferTick] = useState(false);
-  const [oneTransferTick, setOneTransferTick] = useState(false);
-  const [twoTransferTick, setTwoTransferTick] = useState(false);
-  const [threeTransferTick, setThreeTransferTick] = useState(false);
-
-  // console.log(allTick, noTransfertick);
   return (
     <div className={sidebar.sidebar}>
       <h5 className={sidebar.sidebar__header}>Количество пересадок</h5>
@@ -50,12 +49,11 @@ const Sidebar = () => {
           className={sidebar.sidebar__filters_checkbox}
           checked={noTransfertick && oneTransferTick && twoTransferTick && threeTransferTick}
           onClick={() => {
-            setAllTick(true);
-            setNoTransferTick(!noTransfertick);
-            setOneTransferTick(!oneTransferTick);
-            setTwoTransferTick(!twoTransferTick);
-
-            setThreeTransferTick(!threeTransferTick);
+            setAllTick(!allTick);
+            setNoTransferTick(!noTransfertick ? true : false);
+            setOneTransferTick(!noTransfertick ? true : false);
+            setTwoTransferTick(!noTransfertick ? true : false);
+            setThreeTransferTick(!noTransfertick ? true : false);
           }}
         />
         <span>Все</span>
