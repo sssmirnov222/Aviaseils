@@ -12,36 +12,11 @@ import {
 let jsonData = [];
 let searchId = '';
 
-// let s = [];
-
 try {
-  let search = await fetch('https://aviasales-test-api.kata.academy/search');
+  let search = await fetch('https://aviasales-test/search');
   searchId = await search.json();
-  console.log(searchId);
-  const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
-
+  const response = await fetch(`https://aviasales-test/tickets?searchId=${searchId.searchId}`);
   jsonData = await response.json();
-  console.log(jsonData);
-  //   async function one() {
-  //     try {
-  // const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId.searchId}`);
-  // jsonData = await response.json();
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-
-  //     if (jsonData.stop === false) {
-  //       console.log('yet', jsonData);
-
-  //       s.push(...jsonData.tickets);
-  //       s.flat(2);
-  //       one();
-  //     } else {
-  //       console.log('sss', s.flat(2));
-  //       console.log('ent', jsonData);
-  //     }
-  //   }
-  // one();
 } catch (e) {
   console.log(e);
 }
@@ -156,8 +131,6 @@ export function threeTransferTicket(threeTransferTick) {
 export function ticketLoad(allTick, noTransfertick, oneTransferTick, twoTransferTick, threeTransferTick) {
   return async (dispatch) => {
     let loading = true;
-    // console.log(allTick);
-    // console.log(jsonData.tickets);
     loading = false;
 
     dispatch({

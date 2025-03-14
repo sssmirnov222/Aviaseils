@@ -5,8 +5,6 @@ const initialState = {
 };
 
 const sortReducer = (state = initialState, action) => {
-  console.log('sortAction >', action);
-
   switch (action.type) {
     case CHEAP:
       return {

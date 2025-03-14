@@ -5,9 +5,6 @@ const initialState = {
 };
 
 const ticketReducer = (state = initialState, action) => {
-  console.log('ticketAction >', action.type);
-  console.log('ticketAction >', action.data);
-
   switch (action.type) {
     case TICKET_LOAD:
       return {
